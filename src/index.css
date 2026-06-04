@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- GLOBAL STYLES --- */
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  /* Smooth Color Transition for Whole Page */
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+/* --- DYNAMIC BACKGROUNDS --- */
+
+/* 1. Light Mode Background (Professional Agency Look) */
+body {
+  background-color: #f3f4f6; /* Soft Gray */
+  color: #111827; /* Dark Gray Text */
+  /* Very subtle daylight gradient */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%), 
+    radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* 2. Dark Mode Background (Hacker/Cyber Look) */
+/* Jab <html> tag par 'dark' class lagegi, tab ye apply hoga */
+.dark body {
+  background-color: #050505; /* Deep Black */
+  color: #ffffff;
+  /* Original Cyber Glow */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%), 
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+}
+
+/* --- COMPONENTS LAYER (Tailwind Power) --- */
+@layer components {
+
+  /* --- OPTIMIZED DUAL-MODE GLASS --- */
+  .glass {
+    /* Common Properties */
+    @apply backdrop-blur-md border transition-all duration-500 ease-in-out;
+
+    /* Light Mode: White Frosted Glass */
+    @apply bg-white/70 border-gray-200 shadow-xl;
+
+    /* Dark Mode: Transparent Black Glass */
+    @apply dark:bg-white/5 dark:border-white/10 dark:shadow-none;
+  }
+
+  /* Hover Effect for Glass Cards */
+  .glass:hover {
+    @apply transform -translate-y-1;
+    
+    /* Light Mode Hover */
+    @apply border-blue-400/30 shadow-2xl;
+    
+    /* Dark Mode Hover */
+    @apply dark:bg-white/10 dark:border-white/20 dark:shadow-[0_10px_40px_rgba(0,0,0,0.5)];
+  }
+
+  /* --- DUAL-MODE INPUT FIELDS --- */
+  .glass-input {
+    @apply w-full p-4 rounded-xl outline-none transition-all duration-300 border;
+
+    /* Light Mode Input */
+    @apply bg-white border-gray-300 text-gray-900 placeholder-gray-500 
+           focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500;
+
+    /* Dark Mode Input */
+    @apply dark:bg-black/30 dark:border-white/10 dark:text-white dark:placeholder-gray-600 
+           dark:focus:bg-black/50 dark:focus:border-white/30;
+  }
+
+  /* --- ANIMATIONS --- */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+}
+
+/* Keyframes for smooth entry */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar Customization (Optional - Makes it look cool) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
