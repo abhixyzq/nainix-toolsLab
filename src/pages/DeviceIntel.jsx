@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Fingerprint } from 'lucide-react';
 
 const DeviceIntel = () => {
   const [deviceInfo, setDeviceInfo] = useState({});
@@ -31,7 +32,9 @@ const DeviceIntel = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-purple-500/20 shadow-2xl relative overflow-hidden">
             <div className="text-center mb-10">
-                <div className="inline-block p-3 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-4xl mb-4">🕵️‍♂️</div>
+                <div className="inline-block p-3 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-500 mb-4">
+                    <Fingerprint size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Device Intelligence</h1>
                 <p className="text-gray-600 dark:text-gray-400">Analysis of your digital fingerprint.</p>
             </div>

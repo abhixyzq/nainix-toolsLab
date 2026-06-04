@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Unlock } from 'lucide-react';
 
 const JwtTool = () => {
   const [jwtOutput, setJwtOutput] = useState(null);
@@ -29,7 +30,9 @@ const JwtTool = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-yellow-500/20 shadow-2xl">
             <div className="text-center mb-8">
-                <div className="inline-block p-3 rounded-2xl bg-yellow-100 dark:bg-yellow-900/30 text-4xl mb-4">🔓</div>
+                <div className="inline-block p-3 rounded-2xl bg-yellow-100 dark:bg-yellow-900/30 text-yellow-500 mb-4">
+                    <Unlock size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">JWT Debugger</h1>
                 <p className="text-gray-600 dark:text-gray-400">Decode JSON Web Tokens without sending them to a server.</p>
             </div>

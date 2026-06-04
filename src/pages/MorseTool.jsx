@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Radio } from 'lucide-react';
 
 const MorseTool = () => {
   const [out, setOut] = useState("");
@@ -23,7 +24,9 @@ const MorseTool = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-gray-500/20 shadow-2xl">
             <div className="text-center mb-8">
-                <div className="inline-block p-3 rounded-2xl bg-gray-200 dark:bg-white/10 text-4xl mb-4">📡</div>
+                <div className="inline-block p-3 rounded-2xl bg-gray-200 dark:bg-white/10 text-gray-500 mb-4">
+                    <Radio size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Morse Code</h1>
                 <p className="text-gray-600 dark:text-gray-400">Encode secret messages.</p>
             </div>

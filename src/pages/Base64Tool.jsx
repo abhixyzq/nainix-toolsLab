@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Binary } from 'lucide-react';
 
 const Base64Tool = () => {
   const [input, setInput] = useState("");
@@ -27,7 +28,9 @@ const Base64Tool = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-teal-500/20 shadow-2xl">
             <div className="text-center mb-8">
-                <div className="inline-block p-3 rounded-2xl bg-teal-100 dark:bg-teal-900/30 text-4xl mb-4">🕶️</div>
+                <div className="inline-block p-3 rounded-2xl bg-teal-100 dark:bg-teal-900/30 text-teal-500 mb-4">
+                    <Binary size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Base64 Converter</h1>
                 <p className="text-gray-600 dark:text-gray-400">Encode and decode data formats.</p>
             </div>

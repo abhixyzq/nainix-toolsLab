@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Code2, Shield, Cpu, GraduationCap } from 'lucide-react';
 
 const About = () => {
   return (
@@ -29,9 +30,8 @@ const About = () => {
             {/* Avatar / Image Placeholder */}
             <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 relative">
                 <div className="w-full h-full rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-1">
-                    <div className="w-full h-full rounded-full bg-white dark:bg-black overflow-hidden flex items-center justify-center">
-                        {/* Yahan aap apni photo laga sakte hain baad mein */}
-                        <span className="text-4xl">👨‍💻</span>
+                    <div className="w-full h-full rounded-full bg-white dark:bg-black overflow-hidden flex items-center justify-center text-blue-500 dark:text-blue-400">
+                        <Code2 size={48} />
                     </div>
                 </div>
                 <div className="absolute bottom-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full border-2 border-white dark:border-black">
@@ -54,22 +54,28 @@ const About = () => {
 
         {/* 3. OUR VALUES (Grid) */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <div className="glass p-8 rounded-2xl border-t-4 border-blue-500">
-                <div className="text-3xl mb-4">🛡️</div>
+            <div className="glass p-8 rounded-2xl border-t-4 border-blue-500 flex flex-col items-start">
+                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-500 mb-4">
+                    <Shield size={24} />
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Privacy First</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                     We don't sell data. Our tools run client-side whenever possible, ensuring your sensitive information never leaves your device.
                 </p>
             </div>
-            <div className="glass p-8 rounded-2xl border-t-4 border-purple-500">
-                <div className="text-3xl mb-4">🚀</div>
+            <div className="glass p-8 rounded-2xl border-t-4 border-purple-500 flex flex-col items-start">
+                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-500 mb-4">
+                    <Cpu size={24} />
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Modern Tech</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Built on the bleeding edge using React, Vite, and Tailwind CSS. We optimize for speed, SEO, and user experience.
                 </p>
             </div>
-            <div className="glass p-8 rounded-2xl border-t-4 border-green-500">
-                <div className="text-3xl mb-4">🎓</div>
+            <div className="glass p-8 rounded-2xl border-t-4 border-green-500 flex flex-col items-start">
+                <div className="p-3 rounded-xl bg-green-500/10 text-green-500 mb-4">
+                    <GraduationCap size={24} />
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Education</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Tools without knowledge are dangerous. We provide context, warnings, and guides to promote ethical hacking.

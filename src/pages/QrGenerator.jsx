@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { QrCode } from 'lucide-react';
 
 const QrGenerator = () => {
   const [text, setText] = useState("");
@@ -25,7 +26,9 @@ const QrGenerator = () => {
         <div className="glass p-8 rounded-3xl mb-16 border border-cyan-500/20 shadow-2xl relative overflow-hidden">
             <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <div className="inline-block p-3 rounded-2xl bg-cyan-100 dark:bg-cyan-900/30 text-4xl mb-4">📱</div>
+                    <div className="inline-block p-3 rounded-2xl bg-cyan-100 dark:bg-cyan-900/30 text-cyan-500 mb-4">
+                        <QrCode size={32} />
+                    </div>
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Pro QR Maker</h1>
                     <p className="text-gray-600 dark:text-gray-400 mb-6">Create permanent QR codes for your business, wifi, or website links instantly.</p>
                     

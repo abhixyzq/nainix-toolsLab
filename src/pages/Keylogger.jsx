@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Keyboard } from 'lucide-react';
 
 const Keylogger = () => {
   const [keyLogs, setKeyLogs] = useState([]);
@@ -24,7 +25,9 @@ const Keylogger = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-orange-500/20 shadow-2xl relative overflow-hidden">
             <div className="text-center mb-10">
-                <div className="inline-block p-3 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-4xl mb-4">🎹</div>
+                <div className="inline-block p-3 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-500 mb-4">
+                    <Keyboard size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Keylogger Demo</h1>
                 <p className="text-gray-600 dark:text-gray-400">Spyware simulation for educational purposes.</p>
             </div>

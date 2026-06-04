@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Lock } from 'lucide-react';
 
 const ShaTool = () => {
   const [hash, setHash] = useState("");
@@ -28,7 +29,9 @@ const ShaTool = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-red-500/20 shadow-2xl">
             <div className="text-center mb-8">
-                <div className="inline-block p-3 rounded-2xl bg-red-100 dark:bg-red-900/30 text-4xl mb-4">🔒</div>
+                <div className="inline-block p-3 rounded-2xl bg-red-100 dark:bg-red-900/30 text-red-500 mb-4">
+                    <Lock size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">SHA-256 Encryption</h1>
                 <p className="text-gray-600 dark:text-gray-400">Secure one-way hashing algorithm.</p>
             </div>

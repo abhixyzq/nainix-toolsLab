@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Sun, Moon, ShieldCheck, ArrowRight, Lock, Zap, FileText } from 'lucide-react';
 
 // --- NEW COMPONENT IMPORT ---
 import ScrollToTop from './components/ScrollToTop'; // ✅ Step 1: Import kiya
@@ -42,9 +43,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             {/* Theme Toggle Button */}
             <button 
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-yellow-300 transition-all hover:scale-110 active:scale-95"
+                className="p-2 rounded-full bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-yellow-300 transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
             >
-                {darkMode ? "☀️" : "🌙"}
+                {darkMode ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-gray-700" />}
             </button>
 
             <Link to="/" onClick={() => setTimeout(() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}), 100)} className="bg-gray-900 text-white dark:bg-white dark:text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors shadow-lg">
@@ -86,8 +87,9 @@ const Home = () => {
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl -z-10 animate-pulse delay-700"></div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-medium text-blue-600 dark:text-blue-300 bg-blue-100 dark:bg-blue-500/10 rounded-full border border-blue-200 dark:border-blue-500/30">
-            🛡️ Next-Gen Cyber Defense
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-medium text-blue-600 dark:text-blue-300 bg-blue-100 dark:bg-blue-500/10 rounded-full border border-blue-200 dark:border-blue-500/30">
+            <ShieldCheck size={14} className="text-blue-500 animate-pulse" />
+            <span>Next-Gen Cyber Defense</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900 dark:text-white">
             Secure Your Code. <br/> <span className="text-gray-500 dark:text-gray-400">Protect Your Future.</span>
@@ -96,12 +98,12 @@ const Home = () => {
             Nainix provides elite penetration testing and security architecture. Don't wait for a breach—prevent it.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
             <button onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})} className="bg-gray-900 dark:bg-white text-white dark:text-black px-8 py-3 rounded-full font-medium hover:bg-gray-700 dark:hover:bg-gray-100 transition-all shadow-lg hover:scale-105">
               Start Audit
             </button>
-            <Link to="/tools" className="glass px-8 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-white/10 transition-colors text-gray-800 dark:text-white">
-              Launch Tools Lab 🚀
+            <Link to="/tools" className="glass px-8 py-3 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-white/10 transition-colors text-gray-800 dark:text-white flex items-center justify-center gap-2">
+              Launch Tools Lab <ArrowRight size={16} />
             </Link>
           </div>
 
@@ -152,12 +154,12 @@ const Home = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
              {[
-               { icon: "🛡️", title: "Zero-Log Policy", desc: "We value secrecy. Your data and vulnerabilities are never stored on our servers." },
-               { icon: "⚡", title: "Manual Testing", desc: "Automated tools miss things. Our human experts verify every potential threat manually." },
-               { icon: "📑", title: "Detailed Reports", desc: "You get a full PDF report explaining exactly how to fix the security holes we find." }
+               { icon: <Lock className="text-blue-500" size={24} />, title: "Zero-Log Policy", desc: "We value secrecy. Your data and vulnerabilities are never stored on our servers." },
+               { icon: <Zap className="text-yellow-500" size={24} />, title: "Manual Testing", desc: "Automated tools miss things. Our human experts verify every potential threat manually." },
+               { icon: <FileText className="text-purple-500" size={24} />, title: "Detailed Reports", desc: "You get a full PDF report explaining exactly how to fix the security holes we find." }
              ].map((item, i) => (
-                <div key={i} className="glass p-6 rounded-2xl">
-                   <div className="text-4xl mb-4">{item.icon}</div>
+                <div key={i} className="glass p-6 rounded-2xl flex flex-col items-start">
+                   <div className="p-3 rounded-xl bg-gray-100 dark:bg-white/5 mb-4">{item.icon}</div>
                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
                    <p className="text-gray-600 dark:text-gray-400 text-sm">{item.desc}</p>
                 </div>

@@ -1,76 +1,130 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { 
+  Globe, 
+  Mail, 
+  Key, 
+  QrCode, 
+  Fingerprint, 
+  Keyboard, 
+  Unlock, 
+  FileKey2, 
+  ShieldAlert, 
+  Binary, 
+  Cpu, 
+  Radio 
+} from 'lucide-react';
 
 const ToolsHub = () => {
   const tools = [
     { 
       id: 'ip-lookup', 
       name: 'IP Lookup', 
-      icon: '📡', 
+      icon: Globe, 
       desc: 'Trace location & ISP details.', 
       color: 'text-green-500', 
       bg: 'bg-green-500/20',
-      path: '/tools/ip-lookup' // ✅ Linked
+      path: '/tools/ip-lookup'
     },
     { 
       id: 'temp-mail', 
       name: 'Temp Mail', 
-      icon: '📧', 
+      icon: Mail, 
       desc: 'Disposable inbox for OTPs.', 
       color: 'text-blue-500', 
       bg: 'bg-blue-500/20',
-      path: '/tools/temp-mail' // ✅ Linked
+      path: '/tools/temp-mail'
     },
     { 
       id: 'password', 
       name: 'Key Generator', 
-      icon: '🔑', 
+      icon: Key, 
       desc: 'Create unbreakable passwords.', 
       color: 'text-purple-500', 
       bg: 'bg-purple-500/20', 
-      path: '/tools/password-generator' // ✅ Linked
+      path: '/tools/password-generator'
     },
     { 
       id: 'qr', 
       name: 'QR Maker', 
-      icon: '📱', 
+      icon: QrCode, 
       desc: 'Branded QR codes.', 
       color: 'text-cyan-500', 
       bg: 'bg-cyan-500/20', 
-      path: '/tools/qr-maker' // ✅ Linked
+      path: '/tools/qr-maker'
     },
     { 
       id: 'device', 
       name: 'Device Info', 
-      icon: '🕵️‍♂️', 
+      icon: Fingerprint, 
       desc: 'Browser fingerprinting.', 
       color: 'text-purple-500', 
       bg: 'bg-purple-500/20', 
       path: '/tools/device-info' 
     },
     { 
-      id: 'keylogger', name: 'Keylogger', icon: '🎹', desc: 'Spyware simulator.', 
-      color: 'text-orange-500', bg: 'bg-orange-500/20', path: '/tools/keylogger' 
+      id: 'keylogger', 
+      name: 'Keylogger', 
+      icon: Keyboard, 
+      desc: 'Spyware simulator.', 
+      color: 'text-orange-500', 
+      bg: 'bg-orange-500/20', 
+      path: '/tools/keylogger' 
     },
     { 
-      id: 'jwt', name: 'JWT Decoder', icon: '🔓', desc: 'Debug security tokens.', 
-      color: 'text-yellow-500', bg: 'bg-yellow-500/20', path: '/tools/jwt-decoder' 
+      id: 'jwt', 
+      name: 'JWT Decoder', 
+      icon: Unlock, 
+      desc: 'Debug security tokens.', 
+      color: 'text-yellow-500', 
+      bg: 'bg-yellow-500/20', 
+      path: '/tools/jwt-decoder' 
     },
     {
-      id: 'sha', name: 'SHA-256', icon: '🔒', desc: 'Secure hash generator.', color: 'text-red-500', bg: 'bg-red-500/20', path: '/tools/sha256-generator' 
+      id: 'sha', 
+      name: 'SHA-256', 
+      icon: FileKey2, 
+      desc: 'Secure hash generator.', 
+      color: 'text-red-500', 
+      bg: 'bg-red-500/20', 
+      path: '/tools/sha256-generator' 
     },
     {
-      id: 'pass-strength', name: 'Pass Auditor', icon: '💪', desc: 'Check password strength.', color: 'text-pink-500', bg: 'bg-pink-500/20', path: '/tools/password-strength' 
+      id: 'pass-strength', 
+      name: 'Pass Auditor', 
+      icon: ShieldAlert, 
+      desc: 'Check password strength.', 
+      color: 'text-pink-500', 
+      bg: 'bg-pink-500/20', 
+      path: '/tools/password-strength' 
     },
     {
-      id: 'base64', name: 'Base64', icon: '🕶️', desc: 'Encode/Decode text.', color: 'text-teal-500', bg: 'bg-teal-500/20', path: '/tools/base64-converter' 
+      id: 'base64', 
+      name: 'Base64', 
+      icon: Binary, 
+      desc: 'Encode/Decode text.', 
+      color: 'text-teal-500', 
+      bg: 'bg-teal-500/20', 
+      path: '/tools/base64-converter' 
     },
     {
-      id: 'binary', name: 'Binary', icon: '🤖', desc: 'Text to Binary.', color: 'text-lime-500', bg: 'bg-lime-500/20', path: '/tools/binary-translator' 
+      id: 'binary', 
+      name: 'Binary', 
+      icon: Cpu, 
+      desc: 'Text to Binary.', 
+      color: 'text-lime-500', 
+      bg: 'bg-lime-500/20', 
+      path: '/tools/binary-translator' 
     },
     {
-      id: 'morse', name: 'Morse Code', icon: '📡', desc: 'Secret messaging.', color: 'text-gray-500', bg: 'bg-gray-500/20', path: '/tools/morse-code' 
+      id: 'morse', 
+      name: 'Morse Code', 
+      icon: Radio, 
+      desc: 'Secret messaging.', 
+      color: 'text-gray-500', 
+      bg: 'bg-gray-500/20', 
+      path: '/tools/morse-code' 
     },
   ];
 
@@ -90,25 +144,30 @@ const ToolsHub = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.map((tool) => (
-            <Link to={tool.path} key={tool.id} className="group">
-                <div className="glass p-8 rounded-3xl h-full hover:border-blue-500/50 transition-all hover:-translate-y-2">
-                    <div className="flex justify-between items-start mb-6">
-                        <span className="text-4xl">{tool.icon}</span>
-                        <span className={`text-xs ${tool.bg} px-2 py-1 rounded-full ${tool.color} font-bold`}>FREE</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors">
-                        {tool.name}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
-                        {tool.desc}
-                    </p>
-                    <div className="flex items-center text-sm font-bold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
-                        Launch Tool →
-                    </div>
-                </div>
-            </Link>
-          ))}
+          {tools.map((tool) => {
+            const IconComponent = tool.icon;
+            return (
+              <Link to={tool.path} key={tool.id} className="group">
+                  <div className="glass p-8 rounded-3xl h-full hover:border-blue-500/50 transition-all hover:-translate-y-2">
+                      <div className="flex justify-between items-start mb-6">
+                          <div className={`p-3 rounded-2xl ${tool.bg} ${tool.color} flex items-center justify-center`}>
+                              <IconComponent size={24} />
+                          </div>
+                          <span className={`text-xs ${tool.bg} px-2 py-1 rounded-full ${tool.color} font-bold`}>FREE</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors">
+                          {tool.name}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                          {tool.desc}
+                      </p>
+                      <div className="flex items-center text-sm font-bold text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                          Launch Tool →
+                      </div>
+                  </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

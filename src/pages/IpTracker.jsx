@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Globe } from 'lucide-react';
 
 const IpTracker = () => {
   // --- LOGIC ---
@@ -35,14 +36,20 @@ const IpTracker = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             
             <div className="relative z-10 text-center">
-                <div className="inline-block p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-4xl mb-4">📡</div>
+                <div className="inline-block p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-500 mb-4">
+                    <Globe size={32} />
+                </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Advanced IP Lookup</h1>
                 <p className="text-gray-600 dark:text-gray-400 mb-8">Reveal geolocation, ISP, and network details of your connection.</p>
 
                 <div className="glass-input p-6 rounded-2xl mb-6 text-center min-h-[120px] flex flex-col justify-center items-center shadow-inner">
                 {ipData ? (
-                    ipData === "Fetching..." ? <span className="animate-pulse">Scanning satellites... 🛰️</span> :
-                    ipData.error ? <span className="text-red-500">Connection Failed</span> : 
+                    ipData === "Fetching..." ? (
+                      <span className="flex items-center gap-2 animate-pulse text-blue-600 dark:text-blue-400 font-medium">
+                        <Globe size={18} className="animate-spin" /> Scanning satellites...
+                      </span>
+                    ) :
+                    ipData.error ? <span className="text-red-500 font-medium">Connection Failed</span> : 
                     <div className="text-left w-full max-w-md space-y-2">
                         <div className="text-2xl font-mono font-bold text-blue-600 dark:text-blue-400 text-center mb-4">{ipData.ip}</div>
                         <div className="grid grid-cols-2 gap-4 text-sm">

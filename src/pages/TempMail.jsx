@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Mail, RefreshCw, Inbox, Copy } from 'lucide-react';
 
 const TempMail = () => {
   const [tempEmail, setTempEmail] = useState("Loading...");
@@ -84,7 +85,9 @@ const TempMail = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
             <div className="text-center mb-8 relative z-10">
-                <div className="inline-block p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-4xl mb-4">📧</div>
+                <div className="inline-block p-3 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-500 mb-4">
+                    <Mail size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Pro Temp Mail</h1>
                 <p className="text-gray-600 dark:text-gray-400">Optimized for OTPs & Verification.</p>
             </div>
@@ -98,10 +101,10 @@ const TempMail = () => {
                   </span>
                 </div>
                 <button 
-                  onClick={() => {navigator.clipboard.writeText(tempEmail); alert("Copied to clipboard! 📋")}} 
-                  className="bg-blue-100 dark:bg-blue-600/20 hover:bg-blue-200 dark:hover:bg-blue-600/40 text-blue-800 dark:text-blue-100 px-6 py-2 rounded-lg text-sm font-bold transition-colors border border-blue-200 dark:border-blue-500/30 whitespace-nowrap"
+                  onClick={() => {navigator.clipboard.writeText(tempEmail); alert("Copied to clipboard!")}} 
+                  className="bg-blue-100 dark:bg-blue-600/20 hover:bg-blue-200 dark:hover:bg-blue-600/40 text-blue-800 dark:text-blue-100 px-6 py-2 rounded-lg text-sm font-bold transition-colors border border-blue-200 dark:border-blue-500/30 whitespace-nowrap flex items-center gap-1.5"
                 >
-                  Copy
+                  <Copy size={14} /> Copy
                 </button>
             </div>
 
@@ -111,14 +114,14 @@ const TempMail = () => {
                   onClick={() => generateNewMail(activeDomains)} 
                   className="bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg active:scale-95 flex items-center justify-center gap-2"
                 >
-                  <span>🔄</span> Change Address
+                  <RefreshCw size={18} className={loadingMail ? "animate-spin" : ""} /> Change Address
                 </button>
                 <button 
                   onClick={checkInbox} 
                   disabled={loadingMail} 
                   className={`glass text-gray-900 dark:text-white py-3 rounded-xl font-bold hover:bg-gray-100 dark:hover:bg-white/10 active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2 ${loadingMail ? "animate-pulse" : ""}`}
                 >
-                    <span>📩</span> {loadingMail ? "Refreshing..." : "Refresh Inbox"}
+                    <Inbox size={18} /> {loadingMail ? "Refreshing..." : "Refresh Inbox"}
                 </button>
             </div>
 
@@ -132,12 +135,14 @@ const TempMail = () => {
                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                      </span>
                      <span className="text-[10px] text-gray-400">Ready</span>
-                  </div>
+                   </div>
                 </div>
                 
                 {messages.length === 0 ? (
                     <div className="text-center text-gray-400 mt-12 flex flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-white/5 flex items-center justify-center text-xl">📭</div>
+                      <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-white/5 flex items-center justify-center text-blue-500">
+                        <Inbox size={20} />
+                      </div>
                       <p>Your inbox is empty.</p>
                       <p className="text-xs text-gray-500 max-w-xs">Send an email to the address above, wait 5 seconds, and click "Refresh Inbox".</p>
                     </div>

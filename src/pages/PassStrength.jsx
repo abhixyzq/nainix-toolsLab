@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { ShieldAlert } from 'lucide-react';
 
 const PassStrength = () => {
   const [crackTime, setCrackTime] = useState("Enter Password");
@@ -33,7 +34,9 @@ const PassStrength = () => {
 
         <div className="glass p-8 rounded-3xl mb-16 border border-pink-500/20 shadow-2xl">
             <div className="text-center mb-8">
-                <div className="inline-block p-3 rounded-2xl bg-pink-100 dark:bg-pink-900/30 text-4xl mb-4">💪</div>
+                <div className="inline-block p-3 rounded-2xl bg-pink-100 dark:bg-pink-900/30 text-pink-500 mb-4">
+                    <ShieldAlert size={32} />
+                </div>
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Password Auditor</h1>
                 <p className="text-gray-600 dark:text-gray-400">Estimate how long it takes to crack your password.</p>
             </div>
