@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="public/logo.svg" alt="Nainix Logo" width="120" height="120" />
+  <img src="public/logo.png" alt="Nainix Logo" width="120" height="120" />
 </p>
 
 <p align="center">
@@ -72,7 +72,7 @@ Nainix is built using a modern, reactive tech stack optimized for performance an
 ```bash
 nainix-web/
 ├── public/                 # Static assets
-│   ├── logo.svg            # Custom neon vector logo
+│   ├── logo.png            # Custom neon vector logo
 │   ├── logo.png            # High-res raster fallback logo
 │   ├── robots.txt          # Search engine crawlers config
 │   └── sitemap.xml         # SEO sitemap
